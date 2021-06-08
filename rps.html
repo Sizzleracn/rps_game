@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+            function playerSelection() {
+                let selection = prompt("Choose 'Rock', 'Paper', or 'Scissors'");
+                if (selection!="Rock" && selection!="Paper" && selection!="Scissors") {
+                    console.log("You are a dumb human: Please try again");
+                    playerSelection();
+                } else {
+                    return selection; 
+                }
+            }
+            function computerPlay() {
+                let number = Math.floor((Math.random()*3)+1);
+                if (number == 1) {
+                    return "Rock";
+                } else if (number == 2) {
+                    return "Paper";
+                } else if (number == 3) {
+                    return "Scissors";
+                } else {
+                    return "Error: I am a dumb computer"
+                }
+            }
+        </script>
+    </head>
+    <body>
+       
+    </body>
+</html>
