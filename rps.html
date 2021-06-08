@@ -29,7 +29,7 @@
             }
             /*Takes values from first two functions and compares them and determines
             a winner using the game rules*/
-            function winner(player, cpu) {
+            function playRound(player, cpu) {
                 switch(player) {
                     case "Rock":
                         if (cpu == "Rock") {
@@ -40,7 +40,7 @@
                             return "loss";
                         } else {
                             console.log("You win: Rock beats scissors!");
-                            return" win";
+                            return "win";
                         }
                         break;
                     case "Paper":
@@ -69,12 +69,29 @@
                         break; 
                 }
             }
-            /*While loop allowing the player to play indefinitely*/
-            while (true) {
-            let cpu = computerPlay();
-            let player = playerSelection();
-            winner(player, cpu); 
+            function game(numGames) {
+                winsReq = Math.ceil(numGames/2);
+                console.log("You are playing best ",winsReq," out of ",numGames,"!");
+                let playerWins = 0;
+                let cpuWins = 0; 
+                while (playerWins<winsReq && cpuWins<winsReq) {
+                    let cpu = computerPlay();
+                    let player = playerSelection();
+                    let result = playRound(player, cpu);
+                    if (result == "win") {
+                        playerWins++;
+                    } else if (result == "loss") {
+                        cpuWins++;
+                    } else {}
+                }
+                if (playerWins > cpuWins) {
+                    return "Congrats, you have defeated the machine. Humanity is saved!";
+                }  else {
+                    return "You have been bested by an inanimate object. You suck.";
+                }
             }
+            /*While loop allowing the player to play indefinitely*/
+            
         </script>
     </head>
     <body>
