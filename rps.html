@@ -20,8 +20,53 @@
                 } else if (number == 3) {
                     return "Scissors";
                 } else {
-                    return "Error: I am a dumb computer"
+                    return computerPlay();
                 }
+            }
+            function winner(player, cpu) {
+                switch(player) {
+                    case "Rock":
+                        if (cpu == "Rock") {
+                            console.log("The game ends in a draw!");
+                            return "draw";
+                        } else if (cpu == "Paper") {
+                            console.log("You lose: Paper beats rock!");
+                            return "loss";
+                        } else {
+                            console.log("You win: Rock beats scissors!");
+                            return" win";
+                        }
+                        break;
+                    case "Paper":
+                        if (cpu == "Rock") {
+                            console.log("You win: Paper beats rock!");
+                            return "win";
+                        } else if (cpu == "Paper") {
+                            console.log("The game ends in a draw!");
+                            return "draw";
+                        } else {
+                            console.log("You lose: Scissors beats paper");
+                            return "loss";
+                        }
+                        break;
+                    case "Scissors":
+                        if (cpu == "Rock") {
+                            console.log("You lose: Rock beats scissors");
+                            return "loss";
+                        } else if (cpu == "Paper") {
+                            console.log("You win: Scissors beats paper");
+                            return "win";
+                        } else {
+                            console.log("The game ends in a draw!");
+                            return "draw";
+                        }
+                        break; 
+                }
+            }
+            while (true) {
+            let cpu = computerPlay();
+            let player = playerSelection();
+            winner(player, cpu); 
             }
         </script>
     </head>
